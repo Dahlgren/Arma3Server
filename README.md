@@ -6,6 +6,10 @@ An Arma 3 Dedicated Server. Updates to the latest version every time it is resta
 
 ## Usage
 
+Profiles are saved in `/arma3/configs/profiles`
+
+### Docker CLI
+
 ```
     docker create \
         --name=arma-server \
@@ -23,9 +27,7 @@ An Arma 3 Dedicated Server. Updates to the latest version every time it is resta
         synixebrett/arma3server
 ```
 
-Profiles are saved in `/arma3/configs/profiles`
-
-## Parameters
+#### Parameters
 
 | Parameter                     | Function                                                  | Default |
 | -------------                 |--------------                                             | - |
@@ -48,3 +50,15 @@ Profiles are saved in `/arma3/configs/profiles`
 The Steam account does not need to own Arma 3, but must have Steam Guard disabled.
 
 List of Steam branches can be found on the Community Wiki, [Arma 3: Steam Branches](https://community.bistudio.com/wiki/Arma_3:_Steam_Branches)
+
+### Docker Compose
+
+Use the `docker-compose.yml` file in this repository
+
+Create a `.env` file containing at least `STEAM_USER` and `STEAM_PASSWORD`
+
+Use `docker-compose start` to start the server
+
+Use `docker-compose logs` to see server logs
+
+The `network_mode: host` can be changed to explicit ports if needed

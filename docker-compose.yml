@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  arma3server:
+    build: .
+    image: synixebrett/arma3server
+    network_mode: host
+    environment:
+      ARMA_BINARY: ${ARMA_BINARY:-arma3server}
+      ARMA_CONFIG: ${ARMA_CONFIG:-main.cfg}
+      ARMA_PROFILE: ${ARMA_PROFILE:-main}
+      ARMA_WORLD: ${ARMA_WORLD:-empty}
+      HEADLESS_CLIENTS: ${HEADLESS_CLIENTS:-0}
+      PORT: ${PORT:-2302}
+      STEAM_BRANCH: ${STEAM_BRANCH}
+      STEAM_BRANCH_PASSWORD: ${STEAM_BRANCH_PASSWORD}
+      STEAM_PASSWORD: ${STEAM_PASSWORD}
+      STEAM_USER: ${STEAM_USER}
+    volumes:
+      - ./arma3:/arma3
+      - ./configs:/arma3/configs
+      - ./mods:/arma3/mods
+      - ./mpmissions:/arma3/mpmissions
